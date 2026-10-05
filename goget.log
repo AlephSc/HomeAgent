@@ -1,1 +1,0 @@
-go: modernc.org/sqlite@latest: module modernc.org/sqlite: Get "https://proxy.golang.org/modernc.org/sqlite/@v/list": dial tcp: lookup proxy.golang.org: no such host

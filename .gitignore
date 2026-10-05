@@ -21,3 +21,12 @@ _uji*
 _ss*
 aleph-agent-linux
 aleph-agent.gz*
+
+# build artifacts & logs (tidak untuk repo)
+*.gz
+*.gz.new
+run.log
+run.err
+smoke.log
+goget.log
+gotidy.log
