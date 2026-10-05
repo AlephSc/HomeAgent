@@ -176,6 +176,9 @@ go vet ./... && go test ./internal/... -count=1
 ```
 Coverage: agent (persist/rentang/compact), tools (selftool save/run/persist/validasi/quota, delegate anti-rekursi, pptx XML), memory (notes), perm, telegram (model paging), fastpath.
 
+## 💬 Riwayat Pengembangan
+Transkrip lengkap percakapan pengembangan (F, G1–G13, hardening, GitHub): [`docs/CHATLOG.md`](docs/CHATLOG.md).
+
 ## 🗺 Roadmap
 Semua gelombang F1–F9 + G1–G13 **selesai** (detail di `ROADMAP.md`, `ROADMAP-G10.md`).
 Tersisa opsional: **B3 warn kustom** (alert informasi murni buatan agent, evaluator di luar proses — format disk-manifest mengikuti pola G10) — dalam pertimbangan.
