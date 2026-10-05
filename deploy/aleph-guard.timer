@@ -1,0 +1,9 @@
+[Unit]
+Description=Jalankan aleph-guard tiap 2 menit
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=2min
+
+[Install]
+WantedBy=timers.target

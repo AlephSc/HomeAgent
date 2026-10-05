@@ -1,0 +1,11 @@
+aleph-agent 0.1.0-F1
+config loaded: config.yaml (admin: 1 user)
+2026/10/02 17:06:56 [telegram] authorized sebagai @aleph_home_bot
+[info] token discord kosong — skip
+[info] llm.base_url kosong — agent path belum aktif (F2)
+aleph-agent siap. Ctrl+C untuk keluar.
+2026/10/02 17:15:29 [telegram] chat 6374063572: /start
+2026/10/02 17:15:33 [telegram] chat 6374063572: /help
+2026/10/02 17:15:35 [telegram] chat 6374063572: /ping
+2026/10/02 17:15:39 [telegram] chat 6374063572: /status
+2026/10/02 17:15:49 [telegram] chat 6374063572: /services

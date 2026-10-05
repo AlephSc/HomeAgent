@@ -1,0 +1,8 @@
+[Unit]
+Description=aleph-guard rollback watcher
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/aleph-guard.sh
+Nice=5

@@ -1,0 +1,23 @@
+# .gitignore aleph-agent
+
+# secret config (asli) — jangan pernah commit
+config.yaml
+
+# binary
+aleph-agent
+aleph-agent-linux
+aleph-agent.exe
+
+# runtime data
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# go
+vendor/
+
+_uji*
+_ss*
+aleph-agent-linux
+aleph-agent.gz*

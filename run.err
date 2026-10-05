@@ -1,0 +1,6 @@
+2026/10/02 17:26:34 [telegram] authorized sebagai @aleph_home_bot
+2026/10/02 17:33:54 [telegram] chat 6374063572: halo
+2026/10/02 17:37:30 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026/10/02 17:37:30 Failed to get updates, retrying in 3 seconds...
+2026/10/02 17:37:37 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026/10/02 17:37:37 Failed to get updates, retrying in 3 seconds...

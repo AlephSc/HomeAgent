@@ -1,0 +1,72 @@
+# config.yaml — aleph-agent
+# SEMUA nilai di file ini contoh/dummy — isi token asli sebelum deploy.
+# Permission file ini HARUS 600 di server (berisi secret).
+
+server:
+  name: aleph
+  log_tag: aleph-agent
+  data_dir: /opt/aleph-agent
+  # Path yang boleh diakses tools file (sandbox):
+  sandbox_dirs:
+    - /opt/aleph-agent
+    - /etc/dnsmasq.d
+    - /home
+
+token:
+  telegram: "DUMMY:ganti-dengan-token-BotFather"
+  discord: ""   # F4 — kosong dulu
+
+admins:
+  # Telegram user ID anda (bisa lihat via @userinfobot)
+  telegram_ids: [6374063572]
+  discord_ids: []
+
+llm:
+  # 9Router endpoint (OpenAI-compatible). Contoh Routers9 public:
+  base_url: ""    # mis. https://routers9.web.id/v1 — isi saat siap
+  api_key: ""     # 9r-...
+  model: ""       # mis. routers9/gemini-3.8-flash
+  models: []      # daftar model yang boleh dipakai /model
+  max_tool_calls: 20
+  timeout_sec: 90
+  context_max_tokens: 65536   # F6a: budget verbatim riwayat (token) sebelum di-ringkas
+
+alert:
+  enabled: true           # F3 — alert engine aktif
+  disk_max_percent: 90
+  ram_min_mb: 250
+  debounce_minutes: 30
+  watch_services:
+    - dnsmasq
+    - docker
+    - tailscaled
+    - docker:adguardhome
+
+# Fase A — akses berjenjang (tiered access)
+# KEBIJAKAN PERMISSION (F-perm, v0.9.1):
+# - Exec: default-IZINKAN (head command dinilai; pipe dibaca juga — `node x | grep y` cek node & grep)
+# - Command yang belum pernah dijalankan → prompt 4-pilihan: ✅ Sekali ini / 💾 Selalu / ⏳ Sesi ini / ⛔ Tolak
+# - BLOCKLIST dilarang keras (tak bisa di-allow): rm -rf /, mkfs, dd ke /dev/sd*, shutdown/reboot,
+#   fork bomb (:(){ :|:& };:), chmod 777 /, wipefs, dst.
+# - Service kritis (confirm_services) & path sensitif (confirm_paths) TETAP wajib konfirmasi.
+permissions:
+  audit: true                        # catat aksi gated/confirm ke audit.log
+  gated_write_dirs:                  # 🟡 boleh tulis, otomatis dibackup dulu
+    - /etc/systemd/system
+  confirm_services:                  # 🔴 butuh konfirmasi user via Telegram
+    - dnsmasq
+    - docker
+    - tailscaled
+  confirm_paths:                     # 🔴 path sensitif (network/firewall)
+    - /etc/network/interfaces
+    - /etc/dnsmasq.d
+    - /etc/nftables.conf
+    - /etc/iptables
+  gated_exec:                        # 🟡 command bisa dijalankan + ter-audit
+    - systemctl
+    - ping
+    - curl
+    - host
+
+mcp:
+  servers: []   # F8 — daftar MCP server eksternal (name, url, api_key)
